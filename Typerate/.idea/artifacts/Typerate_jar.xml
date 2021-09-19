@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Typerate:jar">
+    <output-path>$PROJECT_DIR$/../builds</output-path>
+    <root id="archive" name="Typerate.jar">
+      <element id="module-output" name="Typerate" />
+    </root>
+  </artifact>
+</component>
