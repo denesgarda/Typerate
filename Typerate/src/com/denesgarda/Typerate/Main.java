@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.LinkedList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -56,18 +54,24 @@ public class Main {
             long startTime = System.currentTimeMillis();
             String input = in.readLine();
             long endTime = System.currentTimeMillis();
-            if(input.equals(text)) {
-                long timeTaken = endTime - startTime;
-                double charactersPerMinute = (double) text.length() / ((double)timeTaken / 60000);
-                double wordsPerMinute = charactersPerMinute / 5.0;
-                System.out.println("\nRESULTS:\nWords: 20\nTime taken: " + ((double)timeTaken / 1000) + " seconds\nCharacters per minute: " + charactersPerMinute + "\nWords per minute: " + wordsPerMinute);
-                System.out.println("Press [ENTER] to retry.");
-                in.readLine();
+            List<String> inputtedList = Arrays.asList(input.split(" "));
+            int words = 0;
+            int correctCharacters = text.length();
+            for(int i = 0; i < 20; i++) {
+                if(passage.get(i).equals(inputtedList.get(i))) {
+                    words++;
+                }
+                else {
+                    correctCharacters -= inputtedList.get(i).length();
+                }
             }
-            else {
-                System.out.println("Not accurate. Press [ENTER] to retry.");
-                in.readLine();
-            }
+            long timeTaken = endTime - startTime;
+            double charactersPerMinute = (double) correctCharacters / ((double)timeTaken / 60000);
+            double wordsPerMinute = charactersPerMinute / 5.0;
+            double accuracy = ((double) words / 20) * 100;
+            System.out.println("\nRESULTS:\nWords: 20\nCorrect Words: " + words + "\nTime taken: " + ((double)timeTaken / 1000) + " seconds\nCharacters per minute: " + charactersPerMinute + "\nWords per minute: " + wordsPerMinute + "\nAccuracy: " + accuracy + "%");
+            System.out.println("Press [ENTER] to retry.");
+            in.readLine();
         }
     }
 }
