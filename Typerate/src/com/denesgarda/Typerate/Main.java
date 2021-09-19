@@ -43,7 +43,7 @@ public class Main {
             for(int i = 0; i < 20; i++) {
                 passage.add((String) wordBank.toArray()[random.nextInt(wordBank.size())]);
             }
-            System.out.println("Type the following as fast as you can. Press [ENTER] to start. Press [ENTER] when done. No mistakes can be made.");
+            System.out.println("Type the following as fast as you can. Press [ENTER] to start. Press [ENTER] when done.");
             in.readLine();
             String text = "";
             for(String word : passage) {
@@ -69,6 +69,8 @@ public class Main {
             }
             catch(IndexOutOfBoundsException e) {
                 System.out.println("DNF. Results unavailable. Press [ENTER] to retry.");
+                in.readLine();
+                continue;
             }
             long timeTaken = endTime - startTime;
             double charactersPerMinute = (double) correctCharacters / ((double)timeTaken / 60000);
