@@ -57,13 +57,18 @@ public class Main {
             List<String> inputtedList = Arrays.asList(input.split(" "));
             int words = 0;
             int correctCharacters = text.length();
-            for(int i = 0; i < 20; i++) {
-                if(passage.get(i).equals(inputtedList.get(i))) {
-                    words++;
+            try {
+                for(int i = 0; i < 20; i++) {
+                    if(passage.get(i).equals(inputtedList.get(i))) {
+                        words++;
+                    }
+                    else {
+                        correctCharacters -= inputtedList.get(i).length();
+                    }
                 }
-                else {
-                    correctCharacters -= inputtedList.get(i).length();
-                }
+            }
+            catch(IndexOutOfBoundsException e) {
+                System.out.println("DNF. Results unavailable. Press [ENTER] to retry.");
             }
             long timeTaken = endTime - startTime;
             double charactersPerMinute = (double) correctCharacters / ((double)timeTaken / 60000);
