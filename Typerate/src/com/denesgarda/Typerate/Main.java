@@ -104,14 +104,14 @@ public class Main {
                     long endTime = System.currentTimeMillis();
                     List<String> inputtedList = Arrays.asList(input.split(" "));
                     int words = 0;
-                    int correctCharacters = text.length();
+                    int correctCharacters = text.length() - (wordsPerPassage - 1);
                     try {
                         for(int i = 0; i < wordsPerPassage; i++) {
                             if(passage.get(i).equals(inputtedList.get(i))) {
                                 words++;
                             }
                             else {
-                                correctCharacters -= inputtedList.get(i).length();
+                                correctCharacters -= passage.get(i).length();
                             }
                         }
                     }
