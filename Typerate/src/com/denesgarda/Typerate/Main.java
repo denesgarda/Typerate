@@ -39,7 +39,7 @@ public class Main {
         }
         mainMenuLoop:
         while(true) {
-            System.out.println("\nTyperate v1.4\n- Press [ENTER] to start\n- Type /settings to change settings\n- Type /exit to exit");
+            System.out.println("\nTyperate v1.5\n- Press [ENTER] to start\n- Type /settings to change settings\n- Type /exit to exit");
             String mainMenuInput = in.readLine();
             if(mainMenuInput.equalsIgnoreCase("/exit")) {
                 break mainMenuLoop;
