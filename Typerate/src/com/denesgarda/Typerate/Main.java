@@ -68,7 +68,7 @@ public class Main {
                     else if(settingsInput.equalsIgnoreCase("/back")) {
                         break settingsLoop;
                     }
-                    else if(settingsInput.equalsIgnoreCase("exit")) {
+                    else if(settingsInput.equalsIgnoreCase("/exit")) {
                         break mainMenuLoop;
                     }
                     else {
